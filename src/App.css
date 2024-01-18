@@ -1,0 +1,273 @@
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+*::-webkit-scrollbar{
+  display: none;
+}
+.maindiv {
+  background-color: white;
+  min-width: 100vw;
+  height: auto;
+  display: grid;
+  row-gap: 20px;
+  grid-template-columns: auto;
+  grid-template-rows: 8vh 15vh 70vh 2.5vh;
+  padding: 5px;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: #474747;
+  color: white;
+}
+
+.headermaindiv {
+  display: flex;
+  justify-content: space-around;
+  /* border: 1px solid black; */
+}
+
+.headermaindiv > img{
+  width: 30vw;
+}
+
+.footermaindiv {
+  text-align: center;
+}
+
+.iconsmaindiv {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.icondiv {
+  min-width: 10vw;
+  min-height: 4vw;
+  overflow: hidden;
+  box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
+  transition: all 0.3s;
+  cursor: pointer;
+  border-radius: 5px;
+  border-bottom: 4px solid lighten(gray, 70%);
+}
+
+.icondiv:hover {
+  box-shadow: 0px 15px 25px -5px rgba(darken(dodgerblue, 40%));
+  transform: scale(1.03);
+}
+
+.icondiv:active {
+  box-shadow: 0px 4px 8px rgba(darken(dodgerblue, 30%));
+  transform: scale(0.98);
+}
+
+.icondiv>img {
+  min-width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.icondropdown {
+  display: none;
+}
+
+.ideandshellmaindiv {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.shell {
+  width: 65%;
+  height: 100%;
+  display: block;
+  padding-left: 15px;
+  /* border: 1px solid black; */
+}
+
+.editor{
+  height: 90%;
+  width: 63.5vw !important;
+  background-color: white;
+  overflow-y: hidden;
+  margin-bottom: 7px;
+}
+
+.run-btn {
+  float: right;
+  width: 80px;
+  height: 40px; 
+  font-size: 22px;
+  font-weight: 400;
+  background-color: #afec3f;
+  border: none;
+  border-radius: 4px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.run-btn:active {
+  background-color: #6e9427;
+}
+
+
+.output {
+  width: 30%;
+  height: 100%;
+  background-color: white;
+  overflow: auto;
+}
+
+.answediv{
+  color: black;
+  overflow: auto;
+}
+
+
+.clear-btn {
+  float: right;
+  margin-top: 54vh;
+  margin-right: 1vw;
+  width: 80px;
+  height: 40px;
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+  background-color: #1f65e6;
+  border: none;
+  border-radius: 4px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.CodeMirror{
+  height: 70vh;
+}
+
+.text{
+  color:greenyellow;
+  background-color:#1f65e6;
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  justify-content: space-around;
+  height: 10vh;
+  text-align: center;
+}
+
+.input-area{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+textarea{
+  width: 20vw;
+  resize: none;
+}
+
+
+@media (max-width: 1000px) {
+  .ideandshellmaindiv {
+      display: block;
+  }
+
+  .shell {
+      width: 100%;
+      height: 58%;
+      margin-bottom: 5vw;
+  }
+
+  .output {
+      width: 100%;
+      height: 35%;
+  }
+  .runbtn{
+      top: 77%;
+  }
+
+  .editor{
+    width: 95vw !important;
+  }
+
+  .maindiv{
+    grid-template-rows: 10vh 15vh 130vh 2.5vh;
+  }
+
+  .clear-btn{
+    margin-top: 30vh;
+  }
+
+  textarea{
+    width: 40vw;
+  }
+}
+
+@media (max-width: 650px) {
+  .headermaindiv > img{
+    width: 45vw;
+  }
+}
+
+
+@media (max-width: 584px) {
+  .shell {
+    padding-left: 10px;
+  }
+}
+
+@media (max-width: 550px) {
+  .icondropdown {
+      display: block;
+  }
+
+  .icondropdown{
+      width: 100% !important;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      gap: 25px;
+  }
+
+  .icondropdown > div{
+      height: 90%;
+      width: 20%;
+  }
+
+  .icondropdown > div > img{
+      height: 100%;
+      width: 100%;
+  }
+
+  .icondiv{
+      display: none;
+  }
+  .editor{
+    width: 92vw !important;
+  }
+
+  select{
+    padding: 5px;
+    border-radius: 20px;
+    font-size: 1rem;
+  }  
+  .shell {
+    padding-left: 17px;
+  }
+}
+
+@media (max-width: 450px) {
+  .shell {
+    padding-left: 13px;
+  }
+
+  .headermaindiv > img{
+    width: 50vw;
+  }
+}
+
+@media (max-width: 360px) {
+  .editor{
+    width: 90vw !important;
+  }
+}
