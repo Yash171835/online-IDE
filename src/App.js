@@ -50,6 +50,9 @@ function App() {
     const replacedCode = userCode;
     const inputValues = userInput.split(/[,\s]+/); // Split input by commas or spaces
 
+    // Replace newline characters with <br/> for display
+    const inputForDisplay = inputValues.join("<br/>");
+
     const url = "https://onecompiler-apis.p.rapidapi.com/api/v1/run";
     const options = {
       method: "POST",
@@ -74,9 +77,13 @@ function App() {
       const response = await fetch(url, options);
       const result = await response.text();
       const resp = JSON.parse(result);
-      setUserOutput(resp.stdout);
+      setUserOutput(resp.stdout.replace(/\n/g, "<br/>")); // Remove { __html: ... }
     } catch (error) {
       console.error(error);
+      const response = await fetch(url, options);
+      const result = await response.text();
+      const resp = JSON.parse(result);
+      setUserOutput({ __html: resp.stderr.replace(/\n/g, "<br/>") }); // Use dangerouslySetInnerHTML
     }
   }
 
@@ -163,7 +170,7 @@ function App() {
             <br />
             {userLang}
           </div>
-          <div className="answediv">{userOutput}</div>
+          <div className="answediv" dangerouslySetInnerHTML={{ __html: userOutput }}></div>
           <button
             onClick={() => {
               clearOutput();
